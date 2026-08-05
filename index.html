@@ -11,9 +11,9 @@
     --canvas: #f9f6f0;
     --canvas-grid: rgba(43,38,32,0.05);
     --surface: #ffffff;
-    --surface-2: #f4efe4;
-    --ink: #2b2620;
-    --ink-soft: #7a6f5e;
+    --surface-2: #f9f6f0;
+    --ink: #4a4a4a;
+    --ink-soft: #888888;
     --border: rgba(43,38,32,0.13);
     --accent: #e63946;
     --accent-ink: #ffffff;
@@ -30,8 +30,8 @@
       --canvas-grid: rgba(240,233,218,0.05);
       --surface: #201c16;
       --surface-2: #26221a;
-      --ink: #f0e9da;
-      --ink-soft: #b3a891;
+      --ink: #e8e8e8;
+      --ink-soft: #a0a0a0;
       --border: rgba(240,233,218,0.14);
       --accent: #ea6a5e;
       --accent-ink: #2a0d05;
@@ -46,15 +46,15 @@
   :root[data-theme="dark"] {
     --canvas: #15130f; --canvas-grid: rgba(240,233,218,0.05);
     --surface: #201c16; --surface-2: #26221a;
-    --ink: #f0e9da; --ink-soft: #b3a891; --border: rgba(240,233,218,0.14);
+    --ink: #e8e8e8; --ink-soft: #a0a0a0; --border: rgba(240,233,218,0.14);
     --accent: #ea6a5e; --accent-ink: #2a0d05; --accent-2: #6d87ad; --stamp: #4a6690; --danger: #c06b54;
     --espresso: #2b1d13; --espresso-2: #402d1e;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
   }
   :root[data-theme="light"] {
     --canvas: #f9f6f0; --canvas-grid: rgba(43,38,32,0.05);
-    --surface: #ffffff; --surface-2: #f4efe4;
-    --ink: #2b2620; --ink-soft: #7a6f5e; --border: rgba(43,38,32,0.13);
+    --surface: #ffffff; --surface-2: #f9f6f0;
+    --ink: #4a4a4a; --ink-soft: #888888; --border: rgba(43,38,32,0.13);
     --accent: #e63946; --accent-ink: #ffffff; --accent-2: #1a2b4c; --stamp: #14213b; --danger: #8b4a3b;
     --espresso: #3d2b1f; --espresso-2: #5a4130;
     --shadow: 0 1px 2px rgba(43,38,32,0.06), 0 8px 24px rgba(43,38,32,0.08);
@@ -194,16 +194,17 @@
   .tab-panel.active { display: flex; }
 
   .tabbar {
-    position: absolute; bottom: 0; left: 0; right: 0; display: flex;
-    background: var(--surface); border-top: 1px solid var(--border);
+    position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center;
+    background: var(--accent-2); border-top: none; min-height: 64px;
     padding: 8px 6px calc(8px + env(safe-area-inset-bottom, 0px));
   }
   .tab-btn {
     flex: 1; background: none; border: none; display: flex; flex-direction: column;
-    align-items: center; gap: 3px; padding: 6px 2px; color: var(--accent-2); cursor: pointer;
-    font-size: 0.62rem; position: relative; opacity: 0.55;
+    align-items: center; gap: 3px; padding: 6px 2px; color: #ffffff; cursor: pointer;
+    font-size: 0.62rem; position: relative; opacity: 0.8;
   }
   .tab-btn.active { color: var(--espresso); opacity: 1; font-weight: 700; }
+  .tab-btn-center svg { width: 30px; height: 30px; }
   .tab-btn svg { width: 21px; height: 21px; }
   .tab-badge {
     position: absolute; top: 2px; right: 22%; width: 7px; height: 7px; border-radius: 50%;
@@ -212,8 +213,8 @@
 
   /* ---- Cards / shared components ---- */
   .card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
-    padding: 14px; box-shadow: var(--shadow);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
   .section-title {
     font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
@@ -302,13 +303,14 @@
   }
   .tip-btn:hover { background: rgba(18,15,10,0.78); }
   .post-foot { display: flex; gap: 16px; align-items: center; }
-  .like-toggle { background: none; border: none; cursor: pointer; display: flex; gap: 5px; align-items: center; color: var(--ink-soft); font-size: 0.78rem; }
+  .like-toggle { background: none; border: none; cursor: pointer; display: flex; gap: 8px; align-items: center; color: var(--ink-soft); font-size: 0.78rem; }
   .like-toggle.liked { color: var(--accent); }
   .like-toggle svg { width: 16px; height: 16px; }
-  .foot-item { display: flex; gap: 5px; align-items: center; color: var(--ink-soft); font-size: 0.78rem; }
+  .foot-item { display: flex; gap: 8px; align-items: center; color: var(--ink-soft); font-size: 0.78rem; }
   .foot-item svg { width: 16px; height: 16px; }
   .foot-bookmark { margin-left: auto; }
-  .hashtags { font-size: 0.78rem; color: var(--accent-2); margin: -4px 0 2px; }
+  .hashtags { display: flex; flex-wrap: wrap; gap: 6px; margin: -2px 0 4px; }
+  .hashtag-pill { font-size: 0.72rem; font-weight: 500; color: var(--espresso); background: #ededea; padding: 3px 8px; border-radius: 4px; }
 
   .group-card { display: flex; align-items: center; gap: 12px; }
   .group-emblem {
@@ -435,24 +437,24 @@
     display: flex; align-items: center; justify-content: center;
   }
 
-  .seg-tabs { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 2px; }
+  .seg-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
   .seg-tabs button {
-    flex-shrink: 0; border: none; background: none; color: var(--ink-soft);
-    font-size: 0.84rem; font-weight: 700; padding: 9px 15px; border-radius: 999px; cursor: pointer;
+    flex-shrink: 0; border: none; background: none; color: var(--espresso);
+    font-size: 0.84rem; font-weight: 700; padding: 8px 16px; border-radius: 8px; cursor: pointer;
     white-space: nowrap;
   }
-  .seg-tabs button.active { background: var(--stamp); color: #fff; }
+  .seg-tabs button.active { background: var(--accent-2); color: #fff; }
 
-  .stories-row { display: flex; gap: 14px; overflow-x: auto; padding: 2px 2px 6px; }
-  .story-item { display: flex; flex-direction: column; align-items: center; gap: 5px; flex-shrink: 0; width: 58px; }
-  .story-avatar { position: relative; width: 52px; height: 52px; border-radius: 50%; }
-  .story-avatar .avatar { width: 52px; height: 52px; border: 2px solid var(--surface); box-shadow: 0 0 0 1.5px var(--border); }
+  .stories-row { display: flex; gap: 12px; overflow-x: auto; padding: 2px 2px 6px; }
+  .story-item { display: flex; flex-direction: column; align-items: center; gap: 5px; flex-shrink: 0; width: 60px; }
+  .story-avatar { position: relative; width: 56px; height: 56px; border-radius: 50%; }
+  .story-avatar .avatar { width: 56px; height: 56px; border: 2px solid var(--surface); box-shadow: 0 0 0 1.5px var(--border); }
   .story-dot { position: absolute; right: 0; bottom: 0; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--surface-2); }
   .story-add {
-    width: 52px; height: 52px; border-radius: 50%; background: var(--espresso); color: #fff;
+    width: 56px; height: 56px; border-radius: 28px; background: var(--espresso); color: #fff;
     display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
   }
-  .story-label { font-size: 0.66rem; color: var(--ink-soft); text-align: center; max-width: 58px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .story-label { font-size: 0.72rem; color: var(--espresso); text-align: center; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   .search-bar { display: flex; gap: 8px; }
   .search-input {
@@ -797,7 +799,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
               <span data-i18n="nav_search">検索</span>
             </button>
-            <button class="tab-btn" data-tab="match">
+            <button class="tab-btn tab-btn-center" data-tab="match">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9.2" cy="12" r="5.6"/><circle cx="15.4" cy="12" r="5.6"/></svg>
               <span data-i18n="nav_match">マッチング</span>
             </button>
@@ -1095,7 +1097,8 @@
   var ICON_BOOKMARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v16l-5-3.6L7 20V4z"/></svg>';
   var ICON_COMMENT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4V5z"/></svg>';
   function hashtagHtml(p) {
-    return p.hashtags ? '<p class="hashtags">' + p.hashtags.join(" ") + '</p>' : "";
+    if (!p.hashtags) return "";
+    return '<div class="hashtags">' + p.hashtags.map(function (t) { return '<span class="hashtag-pill">' + t + '</span>'; }).join("") + '</div>';
   }
   function postFootHtml(p, idx) {
     var tipPillHtml = (typeof p.tips === "number") ? '<span class="pill gold">🪙 <span data-tips>' + p.tips.toLocaleString() + '</span>pt</span>' : "";
