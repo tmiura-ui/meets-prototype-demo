@@ -5,23 +5,23 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Meets" />
-<meta name="theme-color" content="#f3ecdd" />
+<meta name="theme-color" content="#f9f6f0" />
 <style>
   :root {
-    --canvas: #f3ecdd;
+    --canvas: #f9f6f0;
     --canvas-grid: rgba(43,38,32,0.05);
     --surface: #ffffff;
-    --surface-2: #fbf3e4;
+    --surface-2: #f4efe4;
     --ink: #2b2620;
     --ink-soft: #7a6f5e;
     --border: rgba(43,38,32,0.13);
-    --accent: #d9614a;
-    --accent-ink: #3a1208;
-    --accent-2: #22395c;
-    --stamp: #16283d;
+    --accent: #e63946;
+    --accent-ink: #ffffff;
+    --accent-2: #1a2b4c;
+    --stamp: #14213b;
     --danger: #8b4a3b;
-    --espresso: #3a2a1e;
-    --espresso-2: #4e3a2a;
+    --espresso: #3d2b1f;
+    --espresso-2: #5a4130;
     --shadow: 0 1px 2px rgba(43,38,32,0.06), 0 8px 24px rgba(43,38,32,0.08);
   }
   @media (prefers-color-scheme: dark) {
@@ -33,13 +33,13 @@
       --ink: #f0e9da;
       --ink-soft: #b3a891;
       --border: rgba(240,233,218,0.14);
-      --accent: #e17a62;
+      --accent: #ea6a5e;
       --accent-ink: #2a0d05;
-      --accent-2: #6f93c4;
-      --stamp: #4f7aad;
+      --accent-2: #6d87ad;
+      --stamp: #4a6690;
       --danger: #c06b54;
-      --espresso: #2a1e15;
-      --espresso-2: #43321f;
+      --espresso: #2b1d13;
+      --espresso-2: #402d1e;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
     }
   }
@@ -47,16 +47,16 @@
     --canvas: #15130f; --canvas-grid: rgba(240,233,218,0.05);
     --surface: #201c16; --surface-2: #26221a;
     --ink: #f0e9da; --ink-soft: #b3a891; --border: rgba(240,233,218,0.14);
-    --accent: #e17a62; --accent-ink: #2a0d05; --accent-2: #6f93c4; --stamp: #4f7aad; --danger: #c06b54;
-    --espresso: #2a1e15; --espresso-2: #43321f;
+    --accent: #ea6a5e; --accent-ink: #2a0d05; --accent-2: #6d87ad; --stamp: #4a6690; --danger: #c06b54;
+    --espresso: #2b1d13; --espresso-2: #402d1e;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
   }
   :root[data-theme="light"] {
-    --canvas: #f3ecdd; --canvas-grid: rgba(43,38,32,0.05);
-    --surface: #ffffff; --surface-2: #fbf3e4;
+    --canvas: #f9f6f0; --canvas-grid: rgba(43,38,32,0.05);
+    --surface: #ffffff; --surface-2: #f4efe4;
     --ink: #2b2620; --ink-soft: #7a6f5e; --border: rgba(43,38,32,0.13);
-    --accent: #d9614a; --accent-ink: #3a1208; --accent-2: #22395c; --stamp: #16283d; --danger: #8b4a3b;
-    --espresso: #3a2a1e; --espresso-2: #4e3a2a;
+    --accent: #e63946; --accent-ink: #ffffff; --accent-2: #1a2b4c; --stamp: #14213b; --danger: #8b4a3b;
+    --espresso: #3d2b1f; --espresso-2: #5a4130;
     --shadow: 0 1px 2px rgba(43,38,32,0.06), 0 8px 24px rgba(43,38,32,0.08);
   }
 
@@ -200,10 +200,10 @@
   }
   .tab-btn {
     flex: 1; background: none; border: none; display: flex; flex-direction: column;
-    align-items: center; gap: 3px; padding: 6px 2px; color: var(--ink-soft); cursor: pointer;
-    font-size: 0.62rem; position: relative;
+    align-items: center; gap: 3px; padding: 6px 2px; color: var(--accent-2); cursor: pointer;
+    font-size: 0.62rem; position: relative; opacity: 0.55;
   }
-  .tab-btn.active { color: var(--accent); }
+  .tab-btn.active { color: var(--espresso); opacity: 1; font-weight: 700; }
   .tab-btn svg { width: 21px; height: 21px; }
   .tab-badge {
     position: absolute; top: 2px; right: 22%; width: 7px; height: 7px; border-radius: 50%;
@@ -390,7 +390,7 @@
   .wallet-actions .btn { flex: 1; }
 
   .wallet-hero {
-    background: linear-gradient(135deg, var(--espresso), var(--espresso-2));
+    background: var(--espresso);
     border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;
     position: relative; overflow: hidden;
   }
