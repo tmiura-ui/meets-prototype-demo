@@ -8,6 +8,12 @@
 <meta name="theme-color" content="#f9f6f0" />
 <style>
   :root {
+    /* Fixed brand chrome colors: intentionally the same in light and dark mode
+       (tabbar, active segment pills, wallet hero, story "post" button). */
+    --brand-navy: #1a2b4c;
+    --brand-brown: #3d2b1f;
+  }
+  :root {
     --canvas: #f9f6f0;
     --canvas-grid: rgba(43,38,32,0.05);
     --surface: #ffffff;
@@ -22,6 +28,8 @@
     --danger: #8b4a3b;
     --espresso: #3d2b1f;
     --espresso-2: #5a4130;
+    --espresso-text: #3d2b1f;
+    --tag-bg: #ededea;
     --shadow: 0 1px 2px rgba(43,38,32,0.06), 0 8px 24px rgba(43,38,32,0.08);
   }
   @media (prefers-color-scheme: dark) {
@@ -40,6 +48,8 @@
       --danger: #c06b54;
       --espresso: #2b1d13;
       --espresso-2: #402d1e;
+      --espresso-text: #d9c4ae;
+      --tag-bg: #33291f;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
     }
   }
@@ -49,6 +59,7 @@
     --ink: #e8e8e8; --ink-soft: #a0a0a0; --border: rgba(240,233,218,0.14);
     --accent: #ea6a5e; --accent-ink: #2a0d05; --accent-2: #6d87ad; --stamp: #4a6690; --danger: #c06b54;
     --espresso: #2b1d13; --espresso-2: #402d1e;
+    --espresso-text: #d9c4ae; --tag-bg: #33291f;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
   }
   :root[data-theme="light"] {
@@ -57,6 +68,7 @@
     --ink: #4a4a4a; --ink-soft: #888888; --border: rgba(43,38,32,0.13);
     --accent: #e63946; --accent-ink: #ffffff; --accent-2: #1a2b4c; --stamp: #14213b; --danger: #8b4a3b;
     --espresso: #3d2b1f; --espresso-2: #5a4130;
+    --espresso-text: #3d2b1f; --tag-bg: #ededea;
     --shadow: 0 1px 2px rgba(43,38,32,0.06), 0 8px 24px rgba(43,38,32,0.08);
   }
 
@@ -195,7 +207,7 @@
 
   .tabbar {
     position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center;
-    background: var(--accent-2); border-top: none; min-height: 64px;
+    background: var(--brand-navy); border-top: none; min-height: 64px;
     padding: 8px 6px calc(8px + env(safe-area-inset-bottom, 0px));
   }
   .tab-btn {
@@ -203,7 +215,7 @@
     align-items: center; gap: 3px; padding: 6px 2px; color: #ffffff; cursor: pointer;
     font-size: 0.62rem; position: relative; opacity: 0.8;
   }
-  .tab-btn.active { color: var(--espresso); opacity: 1; font-weight: 700; }
+  .tab-btn.active { color: var(--brand-brown); opacity: 1; font-weight: 700; }
   .tab-btn-center svg { width: 30px; height: 30px; }
   .tab-btn svg { width: 21px; height: 21px; }
   .tab-badge {
@@ -310,7 +322,7 @@
   .foot-item svg { width: 16px; height: 16px; }
   .foot-bookmark { margin-left: auto; }
   .hashtags { display: flex; flex-wrap: wrap; gap: 6px; margin: -2px 0 4px; }
-  .hashtag-pill { font-size: 0.72rem; font-weight: 500; color: var(--espresso); background: #ededea; padding: 3px 8px; border-radius: 4px; }
+  .hashtag-pill { font-size: 0.72rem; font-weight: 500; color: var(--espresso-text); background: var(--tag-bg); padding: 3px 8px; border-radius: 4px; }
 
   .group-card { display: flex; align-items: center; gap: 12px; }
   .group-emblem {
@@ -392,7 +404,7 @@
   .wallet-actions .btn { flex: 1; }
 
   .wallet-hero {
-    background: var(--espresso);
+    background: var(--brand-brown);
     border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px;
     position: relative; overflow: hidden;
   }
@@ -439,11 +451,11 @@
 
   .seg-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
   .seg-tabs button {
-    flex-shrink: 0; border: none; background: none; color: var(--espresso);
+    flex-shrink: 0; border: none; background: none; color: var(--espresso-text);
     font-size: 0.84rem; font-weight: 700; padding: 8px 16px; border-radius: 8px; cursor: pointer;
     white-space: nowrap;
   }
-  .seg-tabs button.active { background: var(--accent-2); color: #fff; }
+  .seg-tabs button.active { background: var(--brand-navy); color: #fff; }
 
   .stories-row { display: flex; gap: 12px; overflow-x: auto; padding: 2px 2px 6px; }
   .story-item { display: flex; flex-direction: column; align-items: center; gap: 5px; flex-shrink: 0; width: 60px; }
@@ -451,10 +463,10 @@
   .story-avatar .avatar { width: 56px; height: 56px; border: 2px solid var(--surface); box-shadow: 0 0 0 1.5px var(--border); }
   .story-dot { position: absolute; right: 0; bottom: 0; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--surface-2); }
   .story-add {
-    width: 56px; height: 56px; border-radius: 28px; background: var(--espresso); color: #fff;
+    width: 56px; height: 56px; border-radius: 28px; background: var(--brand-brown); color: #fff;
     display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
   }
-  .story-label { font-size: 0.72rem; color: var(--espresso); text-align: center; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .story-label { font-size: 0.72rem; color: var(--espresso-text); text-align: center; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   .search-bar { display: flex; gap: 8px; }
   .search-input {
@@ -852,11 +864,11 @@
 
   var i18n = {
     ja: { nav_home: "ホーム", nav_search: "検索", nav_match: "マッチング", nav_chat: "メッセージ", nav_profile: "プロフィール",
-      title_community: "ホーム", title_search: "マッチング", title_match: "今日のマッチング", title_chat: "メッセージ", title_profile: "プロフィール" },
+      title_community: "ホーム", title_search: "検索", title_match: "今日のマッチング", title_chat: "メッセージ", title_profile: "プロフィール" },
     en: { nav_home: "Home", nav_search: "Search", nav_match: "Match", nav_chat: "Messages", nav_profile: "Profile",
-      title_community: "Home", title_search: "Matching", title_match: "Today's Matches", title_chat: "Messages", title_profile: "Profile" },
+      title_community: "Home", title_search: "Search", title_match: "Today's Matches", title_chat: "Messages", title_profile: "Profile" },
     mn: { nav_home: "Нүүр", nav_search: "Хайх", nav_match: "Тохирол", nav_chat: "Мессеж", nav_profile: "Профайл",
-      title_community: "Нүүр", title_search: "Тохирол", title_match: "Өнөөдрийн тохирол", title_chat: "Мессеж", title_profile: "Профайл" }
+      title_community: "Нүүр", title_search: "Хайх", title_match: "Өнөөдрийн тохирол", title_chat: "Мессеж", title_profile: "Профайл" }
   };
   var currentLang = (saved && saved.lang) || "ja";
   var langOrder = ["ja", "en", "mn"];
